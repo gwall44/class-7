@@ -1,5 +1,5 @@
 <%
-  bitcoin = 1.0
+  bitcoin = params["amount"]
 
   # connect to the Coindesk API
   # DON'T CHANGE THIS CODE
@@ -19,5 +19,12 @@
   usd_value = usd_rate * bitcoin.to_f
 %>
 
-<p>1 Bitcoin is valued at $<%= usd_rate %> USD.</p>
-<p>Your Bitcoin is worth $<%= usd_value %>.</p>
+<form action "/bitcoins">
+<input type= "text" name="amount" >
+<button>Submit</button>
+</form>
+
+<p>How much bitcoins do you have?? <%= bitcoin %></p>
+<p>1 Bitcoin is currently valued at $<%= usd_rate %> USD.</p>
+
+<p>YOUR total Bitcoin is worth $<%= usd_value %>.</p>
